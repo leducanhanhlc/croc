@@ -34,6 +34,15 @@ packages:
     dependencies:
     - common_cells
     - common_verification
+  obi_ascon:
+    revision: null
+    version: null
+    source:
+      Path: rtl/ascon
+    dependencies:
+    - common_cells
+    - obi
+    - register_interface
   obi_peripherals:
     revision: null
     version: null

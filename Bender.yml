@@ -19,7 +19,7 @@ dependencies:
   obi:                  { git: "https://github.com/pulp-platform/obi.git",                  version: 0.1.7  }
   obi_peripherals:      { git: "https://github.com/pulp-platform/obi_peripherals.git",      rev: 21ee04d    } # UART
   cve2:                 { path: "rtl/cve2" } # a vendor package (no Bender.yml), see below 
-
+  obi_ascon:                { path: "rtl/ascon" }
 
 sources:
   # Level 0
@@ -45,15 +45,6 @@ sources:
       # Level 2
       - rtl/croc_domain.sv
       - rtl/user_domain.sv
-      - rtl/ascon/ascon_core.sv
-      - rtl/ascon/ascon_controller.sv
-      - rtl/ascon/ascon_regs.sv
-      - rtl/ascon/asconp.sv
-      - rtl/ascon/config.sv
-      - rtl/ascon/functions.sv
-      - rtl/ascon/obi_ascon.sv
-      - rtl/ascon/config.sv
-      - rtl/ascon/functions.sv
 
       # add your design files with modules here
       # Level 3
