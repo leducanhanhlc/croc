@@ -13,3 +13,7 @@ sources:
     - ascon_regs.sv
     - ascon_controller.sv
     - obi_ascon.sv
+    - ascon_core.sv
+    - asconp.sv
+    - config.sv
+    - functions.sv

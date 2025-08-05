@@ -52,6 +52,9 @@ sources:
       - rtl/ascon/config.sv
       - rtl/ascon/functions.sv
       - rtl/ascon/obi_ascon.sv
+      - rtl/ascon/config.sv
+      - rtl/ascon/functions.sv
+
       # add your design files with modules here
       # Level 3
       - rtl/croc_soc.sv
