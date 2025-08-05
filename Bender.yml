@@ -189,3 +189,24 @@ vendor_package:
       - { from: 'README.md',                                    to: 'README.md',             patch_dir: '' }
       - { from: 'doc/03_reference/images/blockdiagram.svg',     to: 'blockdiagram.svg',      patch_dir: '' }
       - { from: 'vendor/lowrisc_ip/ip/prim/rtl/',               to: 'include/lowrisc_prim/', patch_dir: 'lowrisc_prim/' }
+
+
+
+   #########
+   # ASCON #
+   #########
+  - name: ascon
+    target_dir: rtl/ascon
+    upstream: { path: "hw/ip/ascon" }
+    patch_dir: "rtl/patches/ascon"
+    mapping:
+      - { from: 'rtl/ascon_core.sv',         to: 'ascon_core.sv',         patch_dir: 'rtl/' }
+      - { from: 'rtl/ascon_controller.sv',   to: 'ascon_controller.sv',   patch_dir: 'rtl/' }
+      - { from: 'rtl/ascon_regs.sv',         to: 'ascon_regs.sv',         patch_dir: 'rtl/' }
+      - { from: 'rtl/asconp.sv',             to: 'asconp.sv',             patch_dir: 'rtl/' }
+      - { from: 'rtl/config.sv',             to: 'config.sv',             patch_dir: 'rtl/' }
+      - { from: 'rtl/functions.sv',          to: 'functions.sv',          patch_dir: 'rtl/' }
+      - { from: 'rtl/obi_ascon.sv',          to: 'obi_ascon.sv',          patch_dir: 'rtl/' }
+      - { from: 'README.md',                 to: 'README.md',             patch_dir: '' }
+      - { from: 'Bender.yml',                to: 'Bender.yml',            patch_dir: '' }
+
