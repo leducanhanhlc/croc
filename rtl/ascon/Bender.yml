@@ -1,0 +1,15 @@
+package:
+  name: obi_ascon
+  authors:
+    - "Leonardo Le <your_email@example.com>"
+
+dependencies:
+  common_cells:         { git: "https://github.com/pulp-platform/common_cells.git",         version: 1.37.0 }
+  obi:                  { git: "https://github.com/pulp-platform/obi.git",                  version: 0.1.7 }
+  register_interface:   { git: "https://github.com/pulp-platform/register_interface.git",   version: 0.4.1  }
+
+sources:
+  files:
+    - ascon_regs.sv
+    - ascon_controller.sv
+    - obi_ascon.sv

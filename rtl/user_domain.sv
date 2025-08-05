@@ -46,9 +46,16 @@ module user_domain import user_pkg::*; import croc_pkg::*; #(
   sbr_obi_req_t [NumDemuxSbr-1:0] all_user_sbr_obi_req;
   sbr_obi_rsp_t [NumDemuxSbr-1:0] all_user_sbr_obi_rsp;
 
+  // ASCON Subordinate Bus
+  sbr_obi_req_t user_ascon_obi_req;
+  sbr_obi_rsp_t user_ascon_obi_rsp;
+
   // Error Subordinate Bus
   sbr_obi_req_t user_error_obi_req;
   sbr_obi_rsp_t user_error_obi_rsp;
+
+  assign user_ascon_obi_req               = all_user_sbr_obi_req[UserAscon];
+  assign all_user_sbr_obi_rsp[UserAscon]  = user_ascon_obi_rsp;
 
   // Fanout into more readable signals
   assign user_error_obi_req              = all_user_sbr_obi_req[UserError];
@@ -114,5 +121,23 @@ module user_domain import user_pkg::*; import croc_pkg::*; #(
     .obi_req_i  ( user_error_obi_req ),
     .obi_rsp_o  ( user_error_obi_rsp )
   );
+  
+  // ASCON Peripheral
+  obi_ascon i_user_ascon (
+    .clk_i      (clk_i),
+    .rst_ni     (rst_ni),
 
+    .obi_req_i  (user_ascon_obi_req.req),
+    .obi_gnt_o  (user_ascon_obi_rsp.gnt),
+    .obi_addr_i (user_ascon_obi_req.addr),
+    .obi_we_i   (user_ascon_obi_req.we),
+    .obi_wdata_i(user_ascon_obi_req.wdata),
+    .obi_be_i   (user_ascon_obi_req.be),
+    .obi_rvalid_o(user_ascon_obi_rsp.rvalid),
+    .obi_rdata_o (user_ascon_obi_rsp.rdata),
+
+    .irq_o() // nếu chưa dùng interrupt, có thể để trống
+  );
+
+  
 endmodule

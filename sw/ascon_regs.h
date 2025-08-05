@@ -1,0 +1,12 @@
+#ifndef _ASCON_REGS_H_
+#define _ASCON_REGS_H_
+
+#define ASCON_CTRL_REG_OFFSET        0x00
+#define ASCON_MODE_REG_OFFSET        0x04
+#define ASCON_DATA_IN_0_REG_OFFSET   0x08
+#define ASCON_DATA_IN_VALID_REG_OFFSET 0x0C
+#define ASCON_START_REG_OFFSET       0x10
+#define ASCON_DONE_REG_OFFSET        0x14
+#define ASCON_DATA_OUT_0_REG_OFFSET  0x18
+
+#endif  // _ASCON_REGS_H_
