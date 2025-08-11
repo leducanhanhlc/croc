@@ -21,7 +21,7 @@ package user_pkg;
   // User Subordinate Address maps ////
   /////////////////////////////////////
 
-  localparam int unsigned NumUserDomainSubordinates = 1;
+  localparam int unsigned NumUserDomainSubordinates = 2;
 
   localparam bit [31:0] UserRomAddrOffset   = croc_pkg::UserBaseAddr; // 32'h2000_0000;
   localparam bit [31:0] UserRomAddrRange    = 32'h0000_1000;          // every subordinate has at least 4KB
@@ -30,18 +30,26 @@ package user_pkg;
   localparam bit [31:0] UserAsconAddrOffset = croc_pkg::UserBaseAddr + 32'h0000_1000;
   localparam bit [31:0] UserAsconAddrRange  = 32'h0000_1000;
 
+  // Dia chi Pre Ascon
+  localparam bit [31:0] UserPreAsconAddrOffset = UserAsconAddrOffset + UserAsconAddrRange;
+  localparam bit [31:0] UserPreAsconAddrRange  = 32'h0000_1000; // 4KB
+
+
   localparam int unsigned NumDemuxSbrRules  = NumUserDomainSubordinates; // number of address rules in the decoder
   localparam int unsigned NumDemuxSbr       = NumDemuxSbrRules + 1; // additional OBI error, used for signal arrays
 
   // Enum for bus indices
   typedef enum int {
-    UserError = 0, 
-    UserAscon = 1
+    UserAscon     = 3'd0,
+    UserPreAscon  = 3'd1,
+    UserError     = 3'd2
   } user_demux_outputs_e;
 
   // Address rules given to address decoder
   localparam croc_pkg::addr_map_rule_t [NumDemuxSbrRules-1:0] user_addr_map = '{
-    '{idx: UserAscon, start_addr: UserAsconAddrOffset, end_addr: UserAsconAddrOffset + UserAsconAddrRange}
+    '{idx: UserAscon,    start_addr: UserAsconAddrOffset,    end_addr: UserAsconAddrOffset + UserAsconAddrRange},
+    '{idx: UserPreAscon, start_addr: UserPreAsconAddrOffset, end_addr: UserPreAsconAddrOffset + UserPreAsconAddrRange}
   };
+
 
 endpackage
