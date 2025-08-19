@@ -8,9 +8,9 @@
 //
 // Implementation of the Ascon core.
 
-`include "asconp.sv"
-`include "config.sv"
-`include "functions.sv"
+`include "include/asconp.sv"
+`include "include/config.sv"
+`include "include/functions.sv"
 
 module ascon_core (
     input  logic                   clk,
