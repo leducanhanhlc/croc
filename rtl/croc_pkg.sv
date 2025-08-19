@@ -217,6 +217,11 @@ package croc_pkg;
     sbr_obi_a_chan_t a;
     logic            req;
   } sbr_obi_req_t;
+ typedef struct packed {
+    sbr_obi_a_chan_t a;
+    logic            req;
+  } obi_req_i;
+  
   /// OBI Xbar <-> Subordinate response channel
   typedef struct packed {
     logic [SbrObiCfg.DataWidth-1:0] rdata;
