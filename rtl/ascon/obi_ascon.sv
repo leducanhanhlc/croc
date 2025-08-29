@@ -16,8 +16,8 @@ module obi_ascon #(
     input  logic rst_ni,
 
     // OBI slave interface
-    input  obi_req_t obi_req_i,
-    output obi_rsp_t obi_rsp_o,
+    input  sbr_obi_req_t obi_req_i,
+    output sbr_obi_rsp_t obi_rsp_o,
 
     // Interrupt
     output logic irq_o
