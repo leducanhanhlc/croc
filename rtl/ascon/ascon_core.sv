@@ -8,24 +8,24 @@
 //
 // Implementation of the Ascon core.
 
-`include "asconp.sv"
-`include "config.sv"
-`include "functions.sv"
+//`include "include/asconp.sv"
+`include "include/config.sv"
+//`include "include/functions.sv"
 
 module ascon_core (
     input  logic                   clk,
     input  logic                   rst,
-    input  logic       [  CCW-1:0] key,
+    input  logic       [  127:0] key,
     input  logic                   key_valid,
     output logic                   key_ready,
-    input  logic       [  CCW-1:0] bdi,
-    input  logic       [CCW/8-1:0] bdi_valid,
+    input  logic       [  127:0] bdi,
+    input  logic       [32/8-1:0] bdi_valid,
     output logic                   bdi_ready,
     input  e_data_type             bdi_type,
     input  logic                   bdi_eot,
     input  logic                   bdi_eoi,
     input  e_mode                  mode,
-    output logic       [  CCW-1:0] bdo,
+    output logic       [  31:0] bdo,
     output logic                   bdo_valid,
     input  logic                   bdo_ready,
     output e_data_type             bdo_type,
