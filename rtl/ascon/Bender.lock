@@ -1,0 +1,46 @@
+packages:
+  apb:
+    revision: null
+    version: null
+    source:
+      Path: /headless/Downloads/temp/croc-ascon/rtl/apb
+    dependencies:
+    - common_cells
+  common_cells:
+    revision: null
+    version: null
+    source:
+      Path: /headless/Downloads/temp/croc-ascon/rtl/common_cells
+    dependencies:
+    - common_verification
+    - tech_cells_generic
+  common_verification:
+    revision: null
+    version: null
+    source:
+      Path: /headless/Downloads/temp/croc-ascon/rtl/common_verification
+    dependencies: []
+  obi:
+    revision: null
+    version: null
+    source:
+      Path: /headless/Downloads/temp/croc-ascon/rtl/obi
+    dependencies:
+    - common_cells
+    - common_verification
+  register_interface:
+    revision: null
+    version: null
+    source:
+      Path: /headless/Downloads/temp/croc-ascon/rtl/register_interface
+    dependencies:
+    - apb
+    - common_cells
+    - common_verification
+  tech_cells_generic:
+    revision: null
+    version: null
+    source:
+      Path: /headless/Downloads/temp/croc-ascon/rtl/tech_cells_generic
+    dependencies:
+    - common_verification
